@@ -1,14 +1,11 @@
 FROM node:20 AS base
 
-WORKDIR /app
+### <JANGAN DIGANTI>
+ARG STUDENT_NAME
+ARG STUDENT_NIM
 
-COPY package*.json ./
+ENV NUXT_STUDENT_NAME ${STUDENT_NAME}
+ENV NUXT_STUDENT_NIM ${STUDENT_NIM}
+### </JANGAN DIGANTI>
 
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
-
-RUN npm run build
-CMD [ "npm", "run", "start" ]
+# TODO: code disini
